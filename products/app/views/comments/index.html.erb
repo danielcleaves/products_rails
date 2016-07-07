@@ -1,0 +1,32 @@
+<h1>All Comments</h1>
+
+<style type = text/css>
+
+	table {
+		border-collapse: collapse;
+	}
+
+	table, th, td {
+		border: 2px solid black;
+		text-align: center;
+	}
+
+
+</style>
+
+<table>
+	<tr>
+		<td>Comments</td>
+		<td>Products</td>
+	</tr>
+	<% @comments.each do |com| %>
+	<tr>
+		<td><%= com.comment %></td>		
+		<td><%= com.product_id %></td>
+	</tr>
+
+<% end %>
+
+</table> 
+<a href="/products">Back</a>
+

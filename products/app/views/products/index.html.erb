@@ -1,0 +1,46 @@
+<style type = text/css>
+
+	table {
+		border-collapse: collapse;
+	}
+
+	table, th, td {
+		border: 2px solid black;
+		text-align: center;
+	}
+
+
+</style>
+
+<h1>Listing Products</h1>
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Description</td>
+		<td>Pricing</td>
+		<td>Category</td>
+		<td>Actions</td>
+	</tr>
+	<% @products.each do |product| %>
+	<tr>
+		<td><%= product.name %></td>
+		<td><%= product.description %></td>
+		<td><%= product.pricing %></td>
+		<td><%= product.cat %></td>
+		<td>
+			 <a href = "/products/<%= product.id %>">Show</a> 
+			 <a href= "/products/<%= product.id %>/edit">Edit</a>
+			 <form action="/products/<%= product.id %>" method="post">
+          		<input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
+          		<input type='hidden' name="_method" value="delete">
+          		<button type="submit">Destroy</button>
+        	</form>
+		</td>
+
+	</tr>
+	<% end %>
+
+</table>
+<a href = "/products/new">New Product</a></br>
+<a href="/comments">All Comments</a>
+
